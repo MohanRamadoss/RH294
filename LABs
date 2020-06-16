@@ -1,0 +1,113 @@
+Lesson 02: Setting up a Managed Environment
+
+Solution:
+---------------------------------------------------------------------------------------------------------------------------------------------
+Lesson 03: Using Ad Hoc Commands 	
+
+Solution:
+---------------------------------------------------------------------------------------------------------------------------------------------
+Lesson 04: Getting Started with Playbooks 	
+
+Solution:
+---------------------------------------------------------------------------------------------------------------------------------------------
+Lesson 05: Working with Variables and Facts 
+
+Solution:
+---------------------------------------------------------------------------------------------------------------------------------------------
+Lesson 06: Using Task Control 	
+
+Solution:
+---------------------------------------------------------------------------------------------------------------------------------------------
+Lesson 07: Deploying Files 
+
+Solution:
+---------------------------------------------------------------------------------------------------------------------------------------------
+Lesson 08: Using Ansible Roles
+
+Solution:
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Lesson 09: Using RHEL System Roles 	
+
+Use a RHEL System Role to set up network cards in managed machines:
+1. You can use a simple configuration where the interface is set to DHCP
+2. Configure your virtual machine with an additional network card (you can do this test on an additional network card to avoid from throwing away
+   your current configuration and losing your connection)
+
+Solution:
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Lesson 10: Using Ansible in Large Environments 	
+
+Analyze the procject that is in the lesson10/lab directory:
+1. Make sure that you have cloned the Github repository in order to access it
+2. Optimize it for use in a large environment 
+3. You will notice that lesson 10 lab is not organized in the most efficient way - apply everything you've learned in this lesson to optimize it
+   for use in a large environment. There are some errors as well - You don't have to fix the errors yet.
+
+Solution:
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Lesson 11: Troubleshooting Ansible 	
+
+Work on the same lab project that we've worked on in lesson 10:
+1. Debug it
+2. Get out all of the errors
+
+Solution:
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Lesson 12: Managing Software with Ansible 
+
+1. Set up a repository on control.example.com
+2. This repository should offer at least one file, including the nmap file
+3. Provide a file list using variables
+4. Configure ansible1 and ansible2 to use the repository that is provided through the package repository
+5. Install the nmap package from this repository
+
+Solution:
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Lesson 13: Managing Users
+
+
+Solution:
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Lesson 14: Managing Processes and Tasks
+
+1. Set the default boot state of the file servers to multi-user.target
+2. Make sure to reboot the server and configure your playbook such that it will show the message "successfully rebooted" once it is 
+   avaliable again 
+   
+Solution:
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Lesson 15: Managing Storage
+
+1. Write a playbook that detects all storage devices on managed systems. It is about getting into Ansible facts and do the thing that needs 
+   to be done withe the Ansible facts.
+
+Solution:
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Lesson 16: Managing Networking	 
+
+Manage networking:
+1. Write a playbook that verifies that two network interfaces are avaliable
+2. If  second interface is avaliable, the playbook should set it up with the network configuration and assign the IP address 192.168.4.30/24 
+   on the interface   
+
+Solution:
+ 
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+

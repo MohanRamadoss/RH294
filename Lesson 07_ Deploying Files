@@ -1,0 +1,75 @@
+7.1 Using Modules to Manipulate Files:
+
+Common File Modules:
+* Different Modules are avaliable for managing files:
+	* lineinfile: ensures that a line is in a file, useful for changing a single line in a file
+	* blockinline: manipulates multi-line blocks of text in files
+	* copy: copies a file from a local or remote machine to a location on a managed host
+	* fetch: used to fetch a file from a remote machine and store it on the management node
+	* file: sets attributes to files and can also create and remove files, symbolic links and more
+	
+
+vim file.yml
+ansible-doc file
+ansible-doc stat
+cd /tmp/ansible1.example.com
+
+--------------------------------------------------------------------------------------------------------------------
+
+7.2 Managing SELinux File Context
+
+Managing SELinux Context:
+* file: sets attributes to files, including SELinux context and can also create and remove files, symbolic links and more
+* sefcontext: manages SELinux file context in the SELinux Policy (but not on files)
+* Notice that file sets SELinux context directly on the file (like the chcon command) and not in the policy
+
+
+vim selinux.yml
+ansible-playbook selinux.yml
+ansible all -m "ls -lZ /tmp/removeme"
+
+--------------------------------------------------------------------------------------------------------------------
+
+7.3 Using Jinja2 Templates
+
+Understanding Jinja2 Templates:
+* lineinfile and blockinline can be used to apply simple modifications to files
+* For more advanced modifications,use Jinja2 templates
+* While using templates,the target files are automatically customized using variables and facts
+* In a Jinja2 template you will find muliple elements:
+	* data
+	* variables
+	* expressions
+	* control structures
+* The variables in the template are replaced with their values when the Jinja2 template is rendered to the target file on the managed host
+* If using variables, they can be specified using the vars section of the playbook
+
+Avoiding Confusion When Using Templates:
+* To prevent administrators from overwriting files that are managed by Ansible, set the ansible_managed string:
+	* First, in ansible.cfg set ansible_managed = Ansible managed
+	* On top of the Jinja2 template, set the {{ ansible_managed }} variable
+
+vim vsftpd-template.yml
+vim vsftpd-template.j2
+ansible-playbook vsftpd-template.yml
+ansible all -a "cat /etc/vsftpd.conf"
+
+--------------------------------------------------------------------------------------------------------------------
+
+7.4 Using Control Structures in Jinja2
+
+Using Control Structures in Templates:
+* In Jinja2 templates, control structures can be used to organize the template in an optimal way
+* The for statement can be used to iterate through a variable and use all values in the variable
+* The if statement can be used to have the template work with a variable if another variable is defined
+
+
+vim hostfile.yml
+vim templates/hosts.j2
+ansible-playbook hostsfile.yml
+ansible ansible2.example.com -m command -a "cat /etc/hosts"
+vim inventory
+ansible-playbook hostsfile.yml
+
+--------------------------------------------------------------------------------------------------------------------
+
